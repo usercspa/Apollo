@@ -8,8 +8,6 @@
 
 Dial +1 678-916-8291 
 
-*Tip: you can call international numbers for free using Google Hangouts*
-
 **SMS**
 
 Text +1 678-916-8291 
