@@ -12,6 +12,8 @@ Dial +1 678-916-8291
 
 Text +1 678-916-8291 
 
+*Please contact us to add you as a test user*
+
 ### Web app for healthcare provider 
 ****
 [Web app]()
