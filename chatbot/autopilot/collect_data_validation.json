@@ -1,0 +1,102 @@
+{
+   "actions":[
+      {
+         "say":"Let's start the health check-in for today!"
+      },
+      {
+         "collect":{
+            "name":"log_data",
+            "questions":[
+               {
+                  "question":"What's your heart rate in beats per minutes?",
+                  "name":"heart_rate",
+                  "type":"Twilio.NUMBER",
+                  "validate":{
+                     "allowed_values":[1, 500
+                     ]
+                     ,
+                     "on_failure":{
+                        "messages":[
+                           {
+                              "say":"That isn't a valid number"
+                           },
+                           {
+                              "say":"Please input a number from 1 to 500. You can find the number in your heart rate monitor."
+                           }
+                        ],
+                        "repeat_question":true
+                     },
+                     "on_success":{
+                        "say":"Got it."
+                     },
+                     "max_attempts":{
+                        "redirect":"task://collect_fallback",
+                        "num_attempts":3
+                     }
+                  }
+               ,
+               {
+                  "question":"What is your blood sugar level in mg/dL?",
+                  "name":"blood_sugar",
+                  "type":"Twilio.NUMBER",
+                  "validate":{
+                     "allowed_values":[1, 500
+                     ]
+
+                     ,
+                     "on_failure":{
+                        "messages":[
+                           {
+                              "say":"That isn't a valid number"
+                           },
+                           {
+                              "say":"Please input a number from 1 to 500. You can find the number in your blood glucose monitor."
+                           }
+                        ],
+                        "repeat_question":true
+                     },
+                     "on_success":{
+                        "say":"Cool thanks!"
+                     },
+                     "max_attempts":{
+                        "redirect":"task://collect_fallback",
+                        "num_attempts":3
+                     }
+                  }
+               },
+               {
+                  "question":"One last question... What's your SpO2 level?",
+                  "name":"oxygen_saturation",
+                  "type":"Twilio.NUMBER",
+                  "validate":{
+                      "allowed_values":[1, 500
+                     ]
+                     ,
+                     "on_failure":{
+                        "messages":[
+                           {
+                              "say":"That isn't a valid number."
+                           },
+                           {
+                              "say":"Please input a number from 50 to 100. You can find the percentage in your pulse oximeter."
+                           }
+                        ],
+                        "repeat_question":true
+                     },
+                     "on_success":{
+                        "say":"Awesome! The health check-in process is completed."
+                     },
+                     "max_attempts":{
+                        "redirect":"task://collect_fallback",
+                        "num_attempts":3
+                     }
+                  }
+               }
+            ],
+            "on_complete":{
+               "redirect":"task://complete"
+            }
+         }
+      }
+   ]
+}
