@@ -1,0 +1,32 @@
+{
+	"actions": [
+		{
+			"say": "Let's start the health check-in for today!"
+		},
+		{
+			"collect": {
+				"name": "log_data",
+				"questions": [
+					{
+						"question": "What's your heart rate in beats per minutes?",
+						"name": "heart_rate",
+						"type": "Twilio.NUMBER"
+					},
+					{
+						"question": "What is your blood sugar level in mg/dL?",
+						"name": "blood_sugar",
+						"type": "Twilio.NUMBER"
+					},
+					{
+						"question": "One last question... What's your SpO2 level?",
+						"name": "oxygen_saturation",
+						"type": "Twilio.NUMBER"
+					}
+				],
+				"on_complete": {
+					"redirect": "task://complete"
+				}
+			}
+		}
+	]
+}

@@ -1,0 +1,10 @@
+{
+	"actions": [
+		{
+			"say": "You can cancel your Apollo subscription through your registered doctor. Can I help with anything else?"
+		},
+		{
+			"listen": true
+		}
+	]
+}
