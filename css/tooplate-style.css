@@ -16,7 +16,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-     TYPOGRAPHY              
+     TYPOGRAPHY
   -----------------------------------------*/
 
   h1,h2,h3,h4,h5,h6 {
@@ -41,6 +41,10 @@ http://www.tooplate.com/view/2098-health
     color: #272727;
     font-size: 3em;
     padding-bottom: 10px;
+  }
+  .okay{
+    margin-top: 5%;
+    margin-left: 2%;
   }
 
   h3 {
@@ -69,7 +73,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-     GENERAL               
+     GENERAL
   -----------------------------------------*/
 
   html{
@@ -203,9 +207,12 @@ http://www.tooplate.com/view/2098-health
     padding: 0;
   }
 
-
+.btny{
+  background-color: black;
+  margin-top: 3%;
+}
   /*---------------------------------------
-       PRE LOADER              
+       PRE LOADER
   -----------------------------------------*/
 
   .preloader {
@@ -255,7 +262,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-      MENU              
+      MENU
   -----------------------------------------*/
 
   header {
@@ -298,15 +305,21 @@ http://www.tooplate.com/view/2098-health
     color: #a5c422;
     margin-right: 5px;
   }
+.btnk{
+  text-align: center;
+  background-color: grey;
+  width: 20%;
+  font-size: 20px;
 
+}
 
 
   /*---------------------------------------
-      MENU              
+      MENU
   -----------------------------------------*/
 
   .navbar-default {
-    background: #90ee90;
+    background: black;
     box-shadow: 0 2px 8px rgba(0,0,0,.075);
     border: none;
     margin-bottom: 0;
@@ -327,7 +340,7 @@ http://www.tooplate.com/view/2098-health
   }
 
   .navbar-default .navbar-nav li.appointment-btn a {
-    background: #a5c422;
+    background: grey;
     border-radius: 3px;
     color: #ffffff;
     font-weight: 600;
@@ -378,14 +391,14 @@ http://www.tooplate.com/view/2098-health
   }
 
   .navbar-default .navbar-toggle:hover,
-  .navbar-default .navbar-toggle:focus { 
+  .navbar-default .navbar-toggle:focus {
     background-color: transparent;
   }
 
 
 
   /*---------------------------------------
-      HOME              
+      HOME
   -----------------------------------------*/
 
   #home h1 {
@@ -465,7 +478,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-      ABOUT              
+      ABOUT
   -----------------------------------------*/
 
   #about {
@@ -499,7 +512,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-      TEAM MEMBERS              
+      TEAM MEMBERS
   -----------------------------------------*/
 
   .team-thumb {
@@ -566,7 +579,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-     SERVICE              
+     SERVICE
   -----------------------------------------*/
 
   #service {
@@ -599,7 +612,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-      NEWS             
+      NEWS
   -----------------------------------------*/
 
   #news, #news-detail {
@@ -748,7 +761,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-      APPOINTMENT             
+      APPOINTMENT
   -----------------------------------------*/
 
   #appointment {
@@ -790,7 +803,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-     FOOTER              
+     FOOTER
   -----------------------------------------*/
 
   footer {
@@ -909,7 +922,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-     SOCIAL ICON              
+     SOCIAL ICON
   -----------------------------------------*/
 
   .social-icon {
@@ -943,7 +956,7 @@ http://www.tooplate.com/view/2098-health
 
 
   /*---------------------------------------
-     RESPONSIVE STYLES              
+     RESPONSIVE STYLES
   -----------------------------------------*/
 
   @media only screen and (max-width: 1200px) {
@@ -1054,4 +1067,3 @@ http://www.tooplate.com/view/2098-health
     }
 
   }
-
