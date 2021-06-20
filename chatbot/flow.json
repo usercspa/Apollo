@@ -1,0 +1,247 @@
+{
+  "description": "Apollo Flow",
+  "states": [
+    {
+      "name": "Trigger",
+      "type": "trigger",
+      "transitions": [
+        {
+          "next": "send_welcome",
+          "event": "incomingMessage"
+        },
+        {
+          "next": "say_welcome",
+          "event": "incomingCall"
+        },
+        {
+          "next": "send_welcome",
+          "event": "incomingRequest"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": 0,
+          "y": 0
+        }
+      }
+    },
+    {
+      "name": "send_welcome",
+      "type": "send-message",
+      "transitions": [
+        {
+          "next": "Apollobot",
+          "event": "sent"
+        },
+        {
+          "event": "failed"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": 390,
+          "y": 250
+        },
+        "service": "{{trigger.message.InstanceSid}}",
+        "channel": "{{trigger.message.ChannelSid}}",
+        "from": "{{flow.channel.address}}",
+        "to": "{{contact.channel.address}}",
+        "body": "Welcome. Thanks for choosing Apollo!"
+      }
+    },
+    {
+      "name": "Apollobot",
+      "type": "send-to-auto-pilot",
+      "transitions": [
+        {
+          "event": "sessionEnded"
+        },
+        {
+          "event": "failure"
+        },
+        {
+          "event": "timeout"
+        }
+      ],
+      "properties": {
+        "chat_channel": "{{trigger.message.ChannelSid}}",
+        "offset": {
+          "x": 390,
+          "y": 500
+        },
+        "autopilot_assistant_sid": "UA27213a5d60802af87665f8ce8c29a784",
+        "from": "{{flow.channel.address}}",
+        "chat_service": "{{trigger.message.InstanceSid}}",
+        "body": "{{trigger.message.Body}}",
+        "timeout": 14400
+      }
+    },
+    {
+      "name": "say_welcome",
+      "type": "say-play",
+      "transitions": [
+        {
+          "next": "gather_start",
+          "event": "audioComplete"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": 30,
+          "y": 250
+        },
+        "loop": 1,
+        "say": "Welcome. Thanks for choosing Apollo!"
+      }
+    },
+    {
+      "name": "gather_start",
+      "type": "gather-input-on-call",
+      "transitions": [
+        {
+          "next": "gather_heartRate",
+          "event": "keypress"
+        },
+        {
+          "next": "gather_heartRate",
+          "event": "speech"
+        },
+        {
+          "next": "gather_start",
+          "event": "timeout"
+        }
+      ],
+      "properties": {
+        "speech_timeout": "auto",
+        "offset": {
+          "x": 30,
+          "y": 500
+        },
+        "loop": 1,
+        "finish_on_key": "#",
+        "say": "Please say START or press any numbers to start the health check-in process.",
+        "stop_gather": true,
+        "gather_language": "en",
+        "profanity_filter": "true",
+        "timeout": 5
+      }
+    },
+    {
+      "name": "gather_heartRate",
+      "type": "gather-input-on-call",
+      "transitions": [
+        {
+          "next": "gather_bloodGlucose",
+          "event": "keypress"
+        },
+        {
+          "next": "gather_bloodGlucose",
+          "event": "speech"
+        },
+        {
+          "next": "gather_heartRate",
+          "event": "timeout"
+        }
+      ],
+      "properties": {
+        "speech_timeout": "auto",
+        "offset": {
+          "x": 30,
+          "y": 740
+        },
+        "loop": 1,
+        "finish_on_key": "#",
+        "say": "What is your heart rate in beats per minutes?",
+        "stop_gather": true,
+        "gather_language": "en",
+        "profanity_filter": "true",
+        "timeout": 5
+      }
+    },
+    {
+      "name": "gather_bloodGlucose",
+      "type": "gather-input-on-call",
+      "transitions": [
+        {
+          "next": "gather_3",
+          "event": "keypress"
+        },
+        {
+          "next": "gather_3",
+          "event": "speech"
+        },
+        {
+          "next": "gather_bloodGlucose",
+          "event": "timeout"
+        }
+      ],
+      "properties": {
+        "speech_timeout": "auto",
+        "offset": {
+          "x": 40,
+          "y": 970
+        },
+        "loop": 1,
+        "finish_on_key": "#",
+        "say": "Thanks! What is your blood sugar level in mg/dL?",
+        "stop_gather": true,
+        "gather_language": "en",
+        "profanity_filter": "true",
+        "timeout": 5
+      }
+    },
+    {
+      "name": "gather_3",
+      "type": "gather-input-on-call",
+      "transitions": [
+        {
+          "next": "say_bye",
+          "event": "keypress"
+        },
+        {
+          "next": "say_bye",
+          "event": "speech"
+        },
+        {
+          "next": "gather_3",
+          "event": "timeout"
+        }
+      ],
+      "properties": {
+        "speech_timeout": "auto",
+        "offset": {
+          "x": 50,
+          "y": 1180
+        },
+        "loop": 1,
+        "finish_on_key": "#",
+        "say": "Cool, one last question... What's your SpO2 level?",
+        "stop_gather": true,
+        "gather_language": "en",
+        "profanity_filter": "true",
+        "timeout": 5
+      }
+    },
+    {
+      "name": "say_bye",
+      "type": "say-play",
+      "transitions": [
+        {
+          "event": "audioComplete"
+        }
+      ],
+      "properties": {
+        "offset": {
+          "x": 50,
+          "y": 1400
+        },
+        "loop": 1,
+        "say": "The health check-in process is complete. Have a nice day!"
+      }
+    }
+  ],
+  "initial_state": "Trigger",
+  "flags": {
+    "allow_concurrent_calls": true
+  }
+}
