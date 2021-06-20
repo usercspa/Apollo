@@ -29,8 +29,8 @@ h1,h2,h3,h4,h5,h6{
 }
 .btnchar{
 
-  margin-left: 19%;
-  margin-top: 30%;
+  margin-left: 43%;
+  margin-top: 10%;
 }
 .btnv{
   margin-top: 5%;
@@ -127,4 +127,39 @@ label{
   margin-left: 30px;
   margin-top: 4px;
   margin-right: 10px;
+}
+.more{
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 10%;
+}
+.mores{
+
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.sps1{
+  border-radius: 5%;
+  width: 15%;
+    border-color: white;
+}
+.sps{
+border-radius: 5%;
+width: 15%;
+  border-color: white;
+  margin-top: 2%;
+}
+.clearfix{
+clear: both;
+}
+.check1{
+  background-color: grey;
+}
+.fqr{
+  margin-left: 30%;
+  margin-top: 2%;
+}
+.fskr{
+  margin-left: 33%;
+  width: 30%;
 }
